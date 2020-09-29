@@ -128,4 +128,28 @@ public class CashRegister {
         }
         
     }
+    
+    public int connectioncheker(String url ,String user ,String pass ,String query){
+        
+        Connection stconobj = null;
+        Statement ststateobj = null;
+        ResultSet stresobj = null;
+        
+        try{
+            stconobj = DriverManager.getConnection(url, user, pass);
+            ststateobj=stconobj.createStatement();
+            stresobj= ststateobj.executeQuery(query);
+            
+            
+        }catch(SQLException e){
+            
+        }
+        if(stresobj!=null){
+            return 1;
+        }else{
+            return 0;
+        }
+                    
+    }
+    
 }

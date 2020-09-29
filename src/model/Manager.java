@@ -43,7 +43,7 @@ public class Manager {
         } else if (manageComamand == 7) {
             managemenuitems();
         } else if (manageComamand == 8) {
-
+            
         } else {
             System.out.println("command not rec");
         }
@@ -183,6 +183,30 @@ public class Manager {
         menumanagement nmenumanagement=new menumanagement();
         nmenumanagement.managemenu();
     }
+    
+    public int connectioncheker(String url ,String user ,String pass ,String query){
+        
+        Connection stconobj = null;
+        Statement ststateobj = null;
+        ResultSet stresobj = null;
+        
+        try{
+            stconobj = DriverManager.getConnection(url, user, pass);
+            ststateobj=stconobj.createStatement();
+            stresobj= ststateobj.executeQuery(query);
+            
+            
+        }catch(SQLException e){
+            
+        }
+        if(stresobj!=null){
+            return 1;
+        }else{
+            return 0;
+        }
+                    
+    }
+    
     
 }    
         

@@ -118,7 +118,6 @@ public class employeemanagement extends Manager{
                 stconobj = DriverManager.getConnection(url, user, pass);
                 ststateobj = stconobj.createStatement();
                 ststateobj.executeUpdate(upquery);
-                System.out.println("ok");
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -134,6 +133,47 @@ public class employeemanagement extends Manager{
         }
         
         
+    }
+    
+    public int connectioncheker(String url ,String user ,String pass ,String query){
+        
+        Connection stconobj = null;
+        Statement ststateobj = null;
+        ResultSet stresobj = null;
+        
+        try{
+            stconobj = DriverManager.getConnection(url, user, pass);
+            ststateobj=stconobj.createStatement();
+            stresobj= ststateobj.executeQuery(query);
+            return 1;
+            
+        }catch(SQLException e){
+            return 0;
+        }/*
+        if(stresobj!=null){
+            
+        }else{
+            
+        }*/
+                    
+    }
+    
+    public int connectioncheker2(String url ,String user ,String pass ,String query){
+        
+        Connection stconobj = null;
+        Statement ststateobj = null;
+        ResultSet stresobj = null;
+        
+        try{
+            stconobj = DriverManager.getConnection(url, user, pass);
+            ststateobj=stconobj.createStatement();
+            ststateobj.executeQuery(query);
+            return 1;
+            
+        }catch(SQLException e){
+            return 0;
+        }
+                    
     }
     
 }
